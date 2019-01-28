@@ -3,7 +3,7 @@
 
 """Main runner function for the Flask app."""
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 app = Flask(__name__)
@@ -11,5 +11,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    """Placeholder function for the Flask app."""
+    """Test the Flask app."""
     return render_template("index.html")
+
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    uploaded_files = request.files.getlist("file[]")
+    print(uploaded_files)
+    return ""
