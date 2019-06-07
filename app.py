@@ -19,4 +19,4 @@ def hello_world():
 def upload():
     uploaded_files = request.files.getlist("file[]")
     print(uploaded_files)
-    return ""
+    return render_template("upload.html", files=uploaded_files)
